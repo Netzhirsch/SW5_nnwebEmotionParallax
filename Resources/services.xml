@@ -1,0 +1,16 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- Add emotion component auto loader -->
+        <service id="nnweb_emotion_parallax.emotion_view_subscriber" class="Shopware\Components\Emotion\EmotionComponentViewSubscriber" public="true">
+            <argument>%nnweb_emotion_parallax.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber" />
+        </service>
+    
+	    <service id="nnweb_emotion_parallax.nnweb_emotion_parallax_component_handler" class="nnwebEmotionParallax\ComponentHandler\nnwebEmotionParallaxComponentHandler" public="true">
+		    <tag name="shopware_emotion.component_handler"/>
+		</service>
+    </services>
+</container>
